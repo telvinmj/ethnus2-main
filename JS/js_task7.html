@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+        .main{
+            display: flex;
+            justify-content: center;
+        }
+        .btn{
+            margin-top: 40px;
+            display: flex;
+            /*justify-content: space-around;*/
+            justify-content: center;
+        }
+        button{
+            font-size: 50px;
+            margin-left: 50px;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+    <div>
+        <img id="gif" src="https://media.tenor.com/qNPJIECgfrsAAAAi/locomotive-joypixels.gif" width="485" height="498" alt="Locomotive Joypixels Sticker - Locomotive Joypixels Train Stickers" style="max-width: 522px;background-color: unset;margin: 12px 18.5px;">
+    </div>
+    <div>
+        <img id="staticImg" src="train3.png" style="width: 485px; margin: 23px 18.5px;" class="hidden">
+    </div>
+</div>
+<h1>Click the following buttons to control the animation</h1>
+    <div class="btn">
+        <button id="startButton">Start</button>
+        <button id="stopButton">Stop</button>
+    </div>
+
+    <script>
+        const gif = document.getElementById("gif");
+        const staticImg = document.getElementById("staticImg");
+        const startButton = document.getElementById("startButton");
+        const stopButton = document.getElementById("stopButton");
+
+        startButton.addEventListener("click", function() {
+            gif.style.display = "block";
+            staticImg.style.display = "none";
+        });
+
+        stopButton.addEventListener("click", function() {
+            gif.style.display = "none";
+            staticImg.style.display = "block";
+        });
+    </script>
+</body>
+</html>

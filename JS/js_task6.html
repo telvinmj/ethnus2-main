@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <style>
+        #login img {
+            margin: 10px 0;
+        }
+
+        #login .center {
+            text-align: center;
+        }
+
+        #login .login {
+            max-width: 300px;
+            margin: 35px auto;
+        }
+
+        #login .login-form {
+            padding: 0px 25px;
+        }
+
+        .invisible-label {
+            display: none;
+            color: red;
+            text-align: center;
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="login" class="container">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="login well well-small">
+                    <div class="center">
+                        <img src="pngegg.png" alt="logo"> 
+                    </div>
+                    <div class="login-form" id="UserLoginForm" accept-charset="utf-8">
+                        <div class="control-group">
+                            <div class="input-prepend">
+                                <span class="add-on"><i class="icon-user"></i></span>
+                                <input name="data[User][username]" required="required" placeholder="Username" maxlength="255" type="text" id="UserUsername"> 
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="input-prepend">
+                                <span class="add-on"><i class="icon-lock"></i></span>
+                                <input name="data[User][password]" required="required" placeholder="Password" type="password" id="UserPassword"> 
+                            </div>
+                        </div>
+                        <label id="lengthLabel" class="invisible-label">Insufficient length</label>
+                        <label id="numberLabel" class="invisible-label">Number is required</label>
+                        <div class="control-group">
+                            <label id="remember-me" style=" display: flex;  justify-content: space-between; align-items: center;">
+                                <label ><input type="checkbox" name="data[User][remember_me]" value="1" id="UserRememberMe"> Remember Me?</label>
+                                <u style="color: blue;"><label style="color: blue;">Forgot Password?</label></u>
+                            </label>
+                        </div>
+                        <div class="control-group">
+                            <input class="btn btn-primary btn-large btn-block" type="button" value="Sign in" id="submitButton" onclick="validatePassword()"> 
+                        </div>
+
+                        <!-- Invisible labels for password constraints -->
+                        
+                    </div>
+                </div><!--/.login-->
+            </div><!--/.span12-->
+        </div><!--/.row-fluid-->
+    </div>
+
+    <script>
+        function validatePassword() {
+            const passwordInput = document.getElementById("UserPassword");
+            const password = passwordInput.value;
+
+            // Reset the labels
+            document.getElementById("lengthLabel").style.display = "none";
+            document.getElementById("numberLabel").style.display = "none";
+
+            if (!isPasswordValid(password)) {
+                if (password.length < 8) {
+                    document.getElementById("lengthLabel").style.display = "block";
+                }
+                if (!/\d/.test(password)) {
+                    document.getElementById("numberLabel").style.display = "block";
+                }
+            }
+            else{
+                document.getElementById("UserUsername").value="";
+                document.getElementById("UserPassword").value="";
+                alert("Submitted Successfully");
+            }
+        }
+
+        // Function to check password constraints
+        function isPasswordValid(password) {
+            // Define your password constraints here
+            // For example, a password must be at least 8 characters and contain at least one digit
+            const minLength = 8;
+            const hasDigit = /\d/.test(password);
+
+            return password.length >= minLength && hasDigit;
+        }
+    </script>
+</body>
+</html>

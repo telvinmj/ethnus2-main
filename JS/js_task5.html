@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 64px;
+            color: #333;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            margin: auto;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .form-input {
+            width: 50%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .result {
+            color: #555;
+            text-align: center;
+            font-size: 50px;
+        }
+
+        .man {
+            display: flex;
+            justify-content: space-around;
+        }
+        .border{
+            border:2px solid red;
+        }
+        button {
+            font-size: 30px;
+            background-color: #f0f0f0;
+            font-weight: bold;
+            border-radius: 10px;
+            padding: 5px;
+            border-color: #333;
+            border-style: solid;
+        }
+
+        button:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 100%; margin: auto;">
+        <h1>Register Form</h1>
+        <div class="container">
+            <div class="form-group">
+                <div class="label-input-pair">
+                    <label for="name" class="form-label" style="display: inline;">Name:</label>
+                    <input type="text" id="name" class="form-input" placeholder="Your Name" style="display: inline;">
+                    <label for="name" class="form-label"  id="warn1" style="display: inline; margin-left:20px;color: red; "></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="label-input-pair">
+                    <label for="email" class="form-label" style="display: inline;">Email:</label>
+                    <input type="email" id="email" class="form-input" placeholder="Your Email" style="display: inline;">
+                    <label for="email" class="form-label"  id="warn2" style="display: inline; margin-left:20px; color: red;"></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="label-input-pair">
+                    <label for="website" class="form-label" style="display: inline;">Website:</label>
+                    <input type="text" id="website" class="form-input" placeholder="Your Website" style="display: inline;">
+                    <label for="website" class="form-label" id="warn3" style="display: inline; margin-left:20px;color: red; "></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="label-input-pair">
+                    <label for="message" class="form-label">Message:</label>
+                    <div style="display: flex; align-items: center;">
+                        <textarea id="message" class="form-input" rows="4" placeholder="Your Message"></textarea>
+                        <label for="message" class="form-label" id="warn4" style="display: inline; margin-left:20px; color: red;"></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group man">
+                <button onclick="submitForm()">Submit</button>
+            </div>
+            <div class="form-group man">
+                <label style="color: green; font-size: xx-large; font-weight: bolder;" id="success"></label>
+            </div>
+        </div>
+    </div>
+    <script src="js_task5.js"></script>
+</body>
+</html>
